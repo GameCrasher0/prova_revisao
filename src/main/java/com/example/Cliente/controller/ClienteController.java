@@ -2,6 +2,7 @@ package com.example.Cliente.controller;
 
 import com.example.Cliente.entity.Cliente;
 import com.example.Cliente.repository.ClienteRepository;
+import com.example.Cliente.utils.Calculo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,9 +16,13 @@ public class ClienteController {
     @Autowired
     private ClienteRepository clienteRepository;
 
+    @Autowired
+    private Calculo calcs;
+
     @PostMapping
     @ResponseBody
     public Cliente create(@RequestBody Cliente cliente){
+        Cliente clienteSocializado = calcs.calc(cliente);
         Cliente clienteSaved = clienteRepository.save(cliente);
         return clienteSaved;
     }

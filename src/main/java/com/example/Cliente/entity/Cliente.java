@@ -12,16 +12,18 @@ public class Cliente {
     private String nomeCompleto;
     private String profissao;
     private Double receita;
+    private Double receitaTotal;
     @OneToMany(cascade = CascadeType.ALL)
     private List<Endereco> enderecos;
     public Cliente() {
     }
 
-    public Cliente(String nomeCompleto, String profissao, Double receita, List<Endereco> enderecos) {
+    public Cliente(String nomeCompleto, String profissao, Double receita, Double receitaTotal, List<Endereco> enderecos) {
         this.nomeCompleto = nomeCompleto;
         this.profissao = profissao;
         this.receita = receita;
         this.enderecos = enderecos;
+        this.receitaTotal = receitaTotal;
     }
 
     public Long getId() {
@@ -58,6 +60,14 @@ public class Cliente {
 
     public void setEnderecos(List<Endereco> enderecos) {
         this.enderecos = enderecos;
+    }
+
+    public Double getReceitaTotal() {
+        return receitaTotal;
+    }
+
+    public void setReceitaTotal(Double receitaTotal) {
+        this.receitaTotal = receitaTotal;
     }
 }
 
