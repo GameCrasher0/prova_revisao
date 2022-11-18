@@ -1,2 +1,4 @@
-package com.example.Cliente.entity;public class Endereco {
+package com.example.Cliente.entity;
+
+public class Endereco {
 }
