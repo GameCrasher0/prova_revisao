@@ -1,15 +1,28 @@
 package com.example.Cliente.entity;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
 public class Cliente {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nomeCompleto;
     private String profissao;
     private Double receita;
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Endereco> enderecos;
+    public Cliente() {
+    }
 
+    public Cliente(String nomeCompleto, String profissao, Double receita, List<Endereco> enderecos) {
+        this.nomeCompleto = nomeCompleto;
+        this.profissao = profissao;
+        this.receita = receita;
+        this.enderecos = enderecos;
+    }
 
     public Long getId() {
         return id;
